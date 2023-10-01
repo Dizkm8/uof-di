@@ -5,7 +5,7 @@ using TranslateHistory.Words.Models;
 
 namespace TranslateHistory.Words
 {
-    public class WordsRepository : GenericRepository<Word>, IWordsRepository
+    public class WordsRepository : AbstractRepository<Word>, IWordsRepository
     {
         public WordsRepository(DataContext context) : base(context)
         {

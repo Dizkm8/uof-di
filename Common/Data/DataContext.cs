@@ -11,5 +11,7 @@ namespace TranslateHistory.Common.Data
         }
 
         public DbSet<Word> Words { get; set; } = null!;
+
+        
     }
 }

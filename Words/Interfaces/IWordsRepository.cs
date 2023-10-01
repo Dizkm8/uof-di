@@ -3,7 +3,7 @@ using TranslateHistory.Words.Models;
 
 namespace TranslateHistory.Words.Interfaces
 {
-    public interface IWordsRepository : IGenericRepository<Word>
+    public interface IWordsRepository : IAbstractRepository<Word>
     {
     }
 }

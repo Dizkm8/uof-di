@@ -1,25 +1,31 @@
 using Microsoft.AspNetCore.Mvc;
 using TranslateHistory.Common;
-using TranslateHistory.Words.Interfaces;
+using TranslateHistory.Common.Data.Interfaces;
+using TranslateHistory.Words.Models;
 
 namespace TranslateHistory.Words
 {
     public class WordsController : GenericController
     {
-        private readonly IWordsService _wordsService;
+        private readonly IUnitOfWork _uof;
 
-        public WordsController(IWordsService wordsService)
+        public WordsController(IUnitOfWork uof)
         {
-            _wordsService = wordsService;
+            _uof = uof;
         }
 
         [HttpGet]
-        public async Task<ActionResult> AllWords()
+        public async Task<ActionResult<List<Word>>> AllWords()
         {
-            return Ok(new
-            {
-                words = _wordsService.GetAll()
-            });
+            var result = await _uof.WordsRepository.Get(null, null, "");
+            return result;
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult<string>> Delete()
+        {
+            await _uof.WordsRepository.Delete("a");
+            return Ok("Deleted");
         }
     }
 }

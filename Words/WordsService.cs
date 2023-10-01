@@ -15,9 +15,9 @@ namespace TranslateHistory.Words
             _wordsRepository = wordsRepository;
         }
 
-        public List<Word> GetAll()
+        public async Task<List<Word>> GetAll()
         {
-            return _unitOfWork.WordsRepository.Get().ToList();
+            return await _unitOfWork.WordsRepository.Get();
         }
     }
 }

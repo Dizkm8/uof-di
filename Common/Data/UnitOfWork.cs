@@ -22,7 +22,6 @@ namespace TranslateHistory.Common.Data
 
         protected virtual void Dispose(bool disposing)
         {
-            Console.WriteLine("Dispose");
             if (!_disposed)
             {
                 if (disposing) _context.Dispose();
@@ -32,7 +31,6 @@ namespace TranslateHistory.Common.Data
 
         public void Dispose()
         {
-            Console.WriteLine("Dispose");
             Dispose(true);
             GC.SuppressFinalize(this);
         }

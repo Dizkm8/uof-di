@@ -4,6 +4,6 @@ namespace TranslateHistory.Words.Interfaces
 {
     public interface IWordsService
     {
-        public List<Word> GetAll();
+        public Task<List<Word>> GetAll();
     }
 }

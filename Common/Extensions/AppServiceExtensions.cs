@@ -29,9 +29,11 @@ namespace TranslateHistory.Common.Extensions
         {
             // UseInMemoryDatabase is only for testing purposes
             // Do not bring it to production or even a serious development
-            services.AddDbContext<DataContext>(opt =>
-                opt.UseInMemoryDatabase("TranslateAppDB")
-            );
+            // services.AddDbContext<DataContext>(opt =>
+            //     opt.UseInMemoryDatabase("TranslateAppDB")
+            // );
+
+            services.AddDbContext<DataContext>(opt => opt.UseSqlite("Data Source=TranslateApp.db"));
         }
 
     }
